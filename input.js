@@ -1,4 +1,5 @@
 let connection;
+const { UP_KEY, DOWN_KEY, LEFT_KEY, RIGHT_KEY } = require("./constants");
 
 const setupInput = (conn) => {
   connection = conn;
@@ -14,13 +15,13 @@ const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   } else if (key === 'w') {
-    connection.write('Move: up');
+    connection.write(UP_KEY);
   } else if (key === 's') {
-    connection.write('Move: down');
+    connection.write(DOWN_KEY);
   } else if (key === 'a') {
-    connection.write('Move: left');
+    connection.write(LEFT_KEY);
   } else if (key === 'd') {
-    connection.write('Move: right');
+    connection.write(RIGHT_KEY);
   } else if (key === 'z') {
     connection.write('Say: WOW');
   } else if (key === 'x') {
