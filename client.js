@@ -5,12 +5,14 @@ const connect = function () {
     port: 50542
   });
   conn.setEncoding("utf8");
-  conn.on("connect", () => {
-    conn.on('data', (data) => {
-      console.log(data);
-    });
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server');
+    conn.write("Name: VIZ");
   });
 
+  conn.on('data', (data) => {
+    console.log(data);
+  });
   return conn;
 };
 
